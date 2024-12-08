@@ -11,9 +11,9 @@
     "node",
     "javascript"
   ],
-  "author": "Aahan",
+  "author": "AahanPulastya",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.21.2"
+    "express":   "^4.21.2"
   }
 }
