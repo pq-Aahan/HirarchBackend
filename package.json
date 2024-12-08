@@ -1,0 +1,19 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend developement",
+  "main": "index.js",
+  "scripts": {
+    "start":"node src/app.js" ,
+     "dev":"nodemon src/app.js" 
+ },
+  "keywords": [
+    "node",
+    "javascript"
+  ],
+  "author": "Aahan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
