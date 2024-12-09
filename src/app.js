@@ -2,15 +2,23 @@ const express=require('express');
 
 const app=express();
 
-app.use("/", (req,res)=>{
-    res.send("Hello from server, root")
-  })
+//This will only handle get call
+app.get("/user",(req,res)=>{
+    res.send({firstName:"Aahan", lastname:"Pulastya"});
+});
 
-app.use("/test", (req,res)=>{
-  res.send("Hello from server, yes you are conected to me on test directory")
+app.post("/user",(req,res)=>{
+    res.send("Save data to database")
+})
+app.delete("/user",(req,res)=>{
+    res.send("Deleted Successfully")
 })
 
+//This wil match all the http method API
+app.use("/test", (req,res)=>{
+  res.send("Hello from server, yes you are conected to me on test directory");
+});
 
 app.listen(1122,()=>{
-    console.log("Your Server is successfully listening on port 1111");
+    console.log("Your Server is successfully listening on port 1122");
 });
