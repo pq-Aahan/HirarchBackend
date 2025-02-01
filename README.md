@@ -1,2 +1,2 @@
-# Backend
-Backend Application using nodejs and express
+# HirarchBackend
+This is the Hirarc application backend in Node
