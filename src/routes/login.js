@@ -179,7 +179,7 @@ router.post('/approve', async (req, res) => {
 
         const secondApprover = await User.findOne({
             companyName: approver.companyName,
-            levelId: 2,
+            levelId: 1,
         });
 
         if (!secondApprover) {
