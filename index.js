@@ -11,6 +11,8 @@ const PORT = 5001;
 app.use(cors());
 app.use(bodyParser.json());
 
+app.use('/uploads', express.static('uploads'));
+
 // Use the register route
 app.use('/api', registerRoute);
 

@@ -6,7 +6,7 @@ const nodemailer = require("nodemailer");
 require("dotenv").config();
 
 const router = express.Router();
-
+  
 router.post('/register', async (req, res) => {
     const users = req.body; // Expecting an array of user objects
 
@@ -150,6 +150,7 @@ router.post('/login', async (req, res) => {
     
 });
 
+
 // Get Users API
 router.get('/getUsers', async (req, res) => {
     try {
@@ -162,6 +163,7 @@ router.get('/getUsers', async (req, res) => {
 });
 
 
+
 router.post('/approve', async (req, res) => {
     const { emailId, comment } = req.body;
 
@@ -170,23 +172,20 @@ router.post('/approve', async (req, res) => {
     }
 
     try {
-        // Fetch the user who is performing the approval
-        const approver = await User.findOne({ emailId }); // Correctly query by emailId field
+        const approver = await User.findOne({ emailId }); 
         if (!approver) {
             return res.status(404).json({ message: 'Approver not found.' });
         }
 
-        // Find the second approver in the same company
         const secondApprover = await User.findOne({
             companyName: approver.companyName,
-            levelId: 2, // Replace with the roleId for the second approver
+            levelId: 2,
         });
 
         if (!secondApprover) {
             return res.status(404).json({ message: 'Second approver not found in the company.' });
         }
 
-        // Send email notification to the second approver
         const transporter = nodemailer.createTransport({
             service: "Gmail",
             auth: {
